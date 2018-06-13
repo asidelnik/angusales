@@ -36,11 +36,19 @@ app.use('/company-api', companyAPI);
 app.use('/customer-api', customerAPI); // use enables the midddleware, which is customerAPI
 app.use('/comment-api', commentAPI);
 
+app.get('/test', (req, res) => {
+    res.send('test');
+    /* 
+        1. Call commnet-model get rows method with await to get a promise
+        2. Return the data with res.send
+    */
+
+    // res.send(JSON.stringify("Here I am.   you like a hurricane."));
+})
 // Catch all other routes and return the index file
 app.all('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/Angusales/index.html'));      //'dist/index.html'
 });
-
 /**
  * Get port from environment and store in Express.
  */

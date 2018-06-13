@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
-var Customer = require('./customer-model');
+var customer = require('./customer-model');
 // var da = new DataAccess();
 
 class Comment {
@@ -15,7 +15,7 @@ class Comment {
             customer_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: Customer,
+                    model: customer,
                     key: 'customer_id'
                 }
             },
@@ -24,7 +24,8 @@ class Comment {
             }
         });
 
-        Customer.model.hasMany(Comment, { foreignKey: 'customer_id' })
+        // Customer.model.hasMany(Comment, {as: 'comments', foreignKey: 'customer_id' });
+        customer.model.hasMany(this.model, { foreignKey: 'customer_id' });
     }
 
     getAllRows() {

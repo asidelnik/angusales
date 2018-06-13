@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
-var Company = require('./company-model');
+var company = require('./company-model');
 
 class Customer {
     constructor() {
@@ -17,7 +17,7 @@ class Customer {
             company_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: Company,
+                    model: company,
                     key: 'company_id'
                 }
             },
@@ -28,7 +28,8 @@ class Customer {
                 type: Sequelize.STRING
             }
         });
-        Company.model.hasMany(Customer, { foreignKey: 'company_id' })
+        // Company.hasMany(Customer, { foreignKey: 'company_id' })
+        // company.model.hasMany(this.model, { foreignKey: 'company_id' });
         // User.hasMany(Foto,{as: 'fotos', foreignKey: 'userId'})
         // https://stackoverflow.com/questions/44070808/hasmany-called-with-something-thats-not-an-instance-of-sequelize-model
     }
@@ -46,12 +47,9 @@ class Customer {
 }
 
 
-
 const customer = new Customer();
 
 module.exports = customer;
-
-
 
 
 

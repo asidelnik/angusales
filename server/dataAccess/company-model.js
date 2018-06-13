@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
+var customer = require('./customer-model');
 // var da = new DataAccess();
 
 class Companies {
@@ -18,12 +19,13 @@ class Companies {
                 type: Sequelize.STRING
             }
         });
+        // customer.belongsTo(Department, { foreignKey: 'department_id' })
     }
 
     getAllRows() {
-        Companies.findAll().then(companies => {
+        this.model.findAll().then(companies => {
             for (let index = 0; index < companies.length; index++) {
-                console.log(companies[index].name);
+                console.log(companies);
             }
             return companies;
         }, err => {
@@ -33,7 +35,6 @@ class Companies {
 }
 
 const company = new Companies();
-
 module.exports = company;
 
 
