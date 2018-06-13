@@ -15,7 +15,9 @@ const bodyParser = require('body-parser');
 
 
 // Get our API routes
-const customerAPI = require('./server/routes/customer-api'); // ('./server/routes/api');
+const companyAPI = require('./server/routes/company-api'); // ('./server/routes/api');
+const customerAPI = require('./server/routes/customer-api');
+const commentAPI = require('./server/routes/comment-api');
 //...
 
 const app = express();
@@ -30,13 +32,13 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 
 
 // Set our api routes
-app.use('/company-api', api);
+app.use('/company-api', companyAPI);
 app.use('/customer-api', customerAPI); // use enables the midddleware, which is customerAPI
-app.use('/comment-api', api);
+app.use('/comment-api', commentAPI);
 
 // Catch all other routes and return the index file
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));      //'dist/index.html'
+app.all('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/Angusales/index.html'));      //'dist/index.html'
 });
 
 /**

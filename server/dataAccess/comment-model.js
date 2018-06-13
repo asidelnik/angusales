@@ -1,3 +1,4 @@
+var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
 var Customer = require('./customer-model');
 // var da = new DataAccess();
@@ -22,8 +23,8 @@ class Comment {
                 type: Sequelize.STRING
             }
         });
-        
-        Customer.hasMany(Comments, { foreignKey: 'customer_id' })
+
+        // Customer.hasMany(Comments, { foreignKey: 'customer_id' })
     }
 
     getAllRows() {

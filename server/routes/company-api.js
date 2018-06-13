@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-var company = require('./company-model');
+var company = require('../dataAccess/company-model');
 
 router.get('/', (req, res) => {
     res.send(JSON.stringify(company.getAllRows()));
@@ -12,3 +12,5 @@ router.get('/', (req, res) => {
 
     // res.send(JSON.stringify("Here I am.   you like a hurricane."));
 })
+
+module.exports = router;

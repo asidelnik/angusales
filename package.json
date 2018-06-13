@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "serve-build",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -26,6 +26,7 @@
     "person-generator": "^1.0.1",
     "rxjs": "^6.0.0",
     "sequelize": "^4.37.10",
+    "serve-build": "^0.1.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

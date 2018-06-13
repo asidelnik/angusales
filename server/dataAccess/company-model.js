@@ -1,3 +1,4 @@
+var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
 // var da = new DataAccess();
 
@@ -48,13 +49,13 @@ module.exports = company;
 
 
 
-Dolphins.findAll().then(companies => {
-    for (let index = 0; index < companies.length; index++) {
-        console.log(companies[index].name);
-    }
-}, err => {
-    console.error(err)
-});
+// Dolphins.findAll().then(companies => {
+//     for (let index = 0; index < companies.length; index++) {
+//         console.log(companies[index].name);
+//     }
+// }, err => {
+//     console.error(err)
+// });
 
 
 // Companies.findAll().then(companies => {

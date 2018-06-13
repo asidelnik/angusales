@@ -1,3 +1,4 @@
+var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
 var Company = require('./company-model');
 
@@ -27,7 +28,7 @@ class Customer {
                 type: Sequelize.STRING
             }
         });
-        Company.hasMany(Customer, { foreignKey: 'company_id' })
+        // Company.hasMany(Customer, { foreignKey: 'company_id' })
     }
 
     getAllRows(){

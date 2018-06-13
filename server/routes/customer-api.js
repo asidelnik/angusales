@@ -1,27 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
+var customer = require('../dataAccess/customer-model');
+
 // router - type of middleware function
-            // An object to which serveral server requests can be assigned to
+// An object to which serveral server requests can be assigned to
 
 router.get('/', (req, res) => {
-
+    res.send(JSON.stringify(customer.getAllRows()));
     /* 
         1. Call customer-model get (table) method with await to get a promise
         2. Return the data with res.send
     */
 
-   // res.send(JSON.stringify("Here I am.   you like a hurricane."));
+    // res.send(JSON.stringify("Here I am.   you like a hurricane."));
 })
-
-
-
-
-
-
-
-
-
 
 
 
@@ -70,7 +63,7 @@ router.get('/word-count/:field', (req, res) => {
         ]
     )
 
-    
+
 
     Word.find({ name: word }, function (err, rslt) {
         if (err) { return console.error(err); }
