@@ -29,12 +29,22 @@ class Customer {
             }
         });
         Company.model.hasMany(Customer, { foreignKey: 'company_id' })
+        // User.hasMany(Foto,{as: 'fotos', foreignKey: 'userId'})
+        // https://stackoverflow.com/questions/44070808/hasmany-called-with-something-thats-not-an-instance-of-sequelize-model
     }
 
-    getAllRows(){
-        return rows;
+    getAllRows() {
+        Customers.findAll().then(customers => {
+            for (let index = 0; index < dolphins.length; index++) {
+                console.log(customers[index].firstName);
+            }
+            return customers;
+        }, err => {
+            console.error(err)
+        });
     }
 }
+
 
 
 const customer = new Customer();

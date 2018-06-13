@@ -24,11 +24,18 @@ class Comment {
             }
         });
 
-        Customer.model.hasMany(Comments, { foreignKey: 'customer_id' })
+        Customer.model.hasMany(Comment, { foreignKey: 'customer_id' })
     }
 
     getAllRows() {
-        return rows;
+        Comments.findAll().then(comments => {
+            for (let index = 0; index < comments.length; index++) {
+                console.log(comments[index].name);
+            }
+            return comments;
+        }, err => {
+            console.error(err)
+        });
     }
 }
 

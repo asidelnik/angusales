@@ -21,7 +21,14 @@ class Companies {
     }
 
     getAllRows() {
-        //return rows;
+        Companies.findAll().then(companies => {
+            for (let index = 0; index < companies.length; index++) {
+                console.log(companies[index].name);
+            }
+            return companies;
+        }, err => {
+            console.error(err)
+        });
     }
 }
 
