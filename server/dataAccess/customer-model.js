@@ -4,7 +4,7 @@ var Company = require('./company-model');
 
 class Customer {
     constructor() {
-        this.customers = DataAccessInst.connection.define('Customers', {
+        this.model = DataAccessInst.connection.define('Customers', {
             customer_id: {
                 type: Sequelize.INTEGER, primaryKey: true
             },
@@ -28,7 +28,7 @@ class Customer {
                 type: Sequelize.STRING
             }
         });
-        // Company.hasMany(Customer, { foreignKey: 'company_id' })
+        Company.model.hasMany(Customer, { foreignKey: 'company_id' })
     }
 
     getAllRows(){

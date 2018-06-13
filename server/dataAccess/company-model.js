@@ -4,7 +4,7 @@ var DataAccessInst = require('./dataAccess');
 
 class Companies {
     constructor() {
-        this.companies = DataAccessInst.connection.define('Companies', {
+        this.model = DataAccessInst.connection.define('Companies', {
             company_id: {
                 type: Sequelize.INTEGER, primaryKey: true
             },
@@ -21,7 +21,7 @@ class Companies {
     }
 
     getAllRows() {
-        return rows;
+        //return rows;
     }
 }
 
