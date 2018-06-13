@@ -15,7 +15,8 @@ const bodyParser = require('body-parser');
 
 
 // Get our API routes
-const api = require('./dataAccess/api'); // ('./server/routes/api');
+const customerAPI = require('./server/routes/customer-api'); // ('./server/routes/api');
+//...
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 
 // Set our api routes
 app.use('/company-api', api);
-app.use('/customer-api', api);
+app.use('/customer-api', customerAPI); // use enables the midddleware, which is customerAPI
 app.use('/comment-api', api);
 
 // Catch all other routes and return the index file

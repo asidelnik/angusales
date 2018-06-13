@@ -1,8 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+
+// router - type of middleware function
+            // An object to which serveral server requests can be assigned to
 
 router.get('/', (req, res) => {
-    
+
     /* 
         1. Call customer-model get (table) method with await to get a promise
         2. Return the data with res.send

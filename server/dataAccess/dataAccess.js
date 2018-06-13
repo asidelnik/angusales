@@ -3,7 +3,7 @@ var Sequelize = require('sequelize');
 
 class DataAccess {
     constructor() {
-        this.connection = new Sequelize('Angusales', 'root', 'limor1789', {
+        this.connection = new Sequelize('Angusales', 'root', '1234', {
             host: 'localhost',
             dialect: 'mysql',
             operatorsAliases: false,
