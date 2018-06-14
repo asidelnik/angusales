@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -12,6 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 import { AppComponent } from './app.component';
+import { CustomerService } from './customer.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
@@ -25,6 +27,7 @@ import { TableComponent } from './table/table.component';
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         MatTabsModule,
         MatCardModule,
         BrowserAnimationsModule,
@@ -34,7 +37,7 @@ import { TableComponent } from './table/table.component';
         MatFormFieldModule,
         MatPaginatorModule
     ],
-    providers: [],
+    providers: [CustomerService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

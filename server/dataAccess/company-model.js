@@ -1,6 +1,5 @@
 var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
-var customer = require('./customer-model');
 // var da = new DataAccess();
 
 class Companies {
@@ -19,18 +18,10 @@ class Companies {
                 type: Sequelize.STRING
             }
         });
-        // customer.belongsTo(Department, { foreignKey: 'department_id' })
     }
 
     getAllRows() {
-        this.model.findAll().then(companies => {
-            for (let index = 0; index < companies.length; index++) {
-                console.log(companies);
-            }
-            return companies;
-        }, err => {
-            console.error(err)
-        });
+        return this.model.findAll();
     }
 }
 
@@ -40,34 +31,7 @@ module.exports = company;
 
 
 
-// Many to 1
-// Employees to Departments
-// Employee.belongsTo(Department, {foreignKey: 'department_id'})
-
-// inner join employees on salaries.employee_id = employees.employee_id
-// inner join jobs on jobs.job_id = employees.job_id
-// inner join departments on departments.department_id = employees.department_id
-
-// Employee.belongsTo(Department, { foreignKey: 'department_id' })
-
-
-// Department.hasMany(Employee, { foreignKey: 'department_id' })
-
-
-
-
-
-// Dolphins.findAll().then(companies => {
-//     for (let index = 0; index < companies.length; index++) {
-//         console.log(companies[index].name);
-//     }
-// }, err => {
-//     console.error(err)
-// });
-
-
-// Companies.findAll().then(companies => {
-//     console.log(companies[0].dataValues.name)
-// }, err => {
-//     console.error(err)
-// });
+// for (let index = 0; index < companies.length; index++) {
+//     console.log(companies);
+// }
+// return companies;

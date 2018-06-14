@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, Input } from '@angular/core';
+import { Customer } from '../customer-model-front';
 
 @Component({
     selector: 'app-table',
@@ -7,37 +7,53 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
     styleUrls: ['./table.component.css']
 })
 
-export class TableComponent {
+export class TableComponent implements OnInit {
     displayedColumns = ['id', 'firstName', 'lastName', 'company', 'phone'];
-    // displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    dataSource = ELEMENT_DATA;
+    // dataSource = ELEMENT_DATA;
+    @Input() customers: Customer[] = new Array<Customer>();
+
+    constructor() { }
+
+    ngOnInit() {}
 }
 
-export interface PeriodicElement {
-    id: number;
-    firstName: string;
-    lastName: string;
-    company: string;
-    phone: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    { id: 1, firstName: 'Hydrogen', lastName: 'Hydrogen', company: 'Wix', phone: 'Wix'},
-    { id: 2, firstName: 'Helium', lastName: 'Helium', company: 'Check Point', phone: 'Wix'},
-    { id: 3, firstName: 'Lithium', lastName: 'Lithium', company: 'Similar Web', phone: 'Wix'},
-    { id: 4, firstName: 'Beryllium', lastName: 'Hydrogen', company: 'Wix', phone: 'Wix'},
-    { id: 5, firstName: 'Boron', lastName: 'Helium', company: 'Check Point', phone: 'Wix'},
-    { id: 6, firstName: 'Carbon', lastName: 'Lithium', company: 'Similar Web', phone: 'Wix'},
-    { id: 7, firstName: 'Nitrogen', lastName: 'Hydrogen', company: 'Wix', phone: 'Wix'},
-    { id: 8, firstName: 'Oxygen', lastName: 'Helium', company: 'Check Point', phone: 'Wix'},
-    { id: 9, firstName: 'Fluorine', lastName: 'Lithium', company: 'Similar Web', phone: 'Wix'}
-];
 
 
 
 
 
-/*
+// export interface PeriodicElement {
+//     id: number;
+//     firstName: string;
+//     lastName: string;
+//     company: string;
+//     phone: string;
+// }
+
+// const ELEMENT_DATA: PeriodicElement[] = [
+//     { id: 1, firstName: 'Hydrogen', lastName: 'Hydrogen', company: 'Wix', phone: 'Wix'},
+//     { id: 2, firstName: 'Helium', lastName: 'Helium', company: 'Check Point', phone: 'Wix'},
+//     { id: 3, firstName: 'Lithium', lastName: 'Lithium', company: 'Similar Web', phone: 'Wix'},
+//     { id: 4, firstName: 'Beryllium', lastName: 'Hydrogen', company: 'Wix', phone: 'Wix'},
+//     { id: 5, firstName: 'Boron', lastName: 'Helium', company: 'Check Point', phone: 'Wix'},
+//     { id: 6, firstName: 'Carbon', lastName: 'Lithium', company: 'Similar Web', phone: 'Wix'},
+//     { id: 7, firstName: 'Nitrogen', lastName: 'Hydrogen', company: 'Wix', phone: 'Wix'},
+//     { id: 8, firstName: 'Oxygen', lastName: 'Helium', company: 'Check Point', phone: 'Wix'},
+//     { id: 9, firstName: 'Fluorine', lastName: 'Lithium', company: 'Similar Web', phone: 'Wix'}
+// ];
+
+
+
+
+
+
+
+
+
+/*  Advnaced tables typescripts
+
+// import { ViewChild } from '@angular/core';
+// import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 export class TableComponent implements OnInit {
     displayedColumns = ['id', 'First name', 'Last name', 'Company', 'Phone'];

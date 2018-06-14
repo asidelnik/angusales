@@ -17,7 +17,7 @@ class Customer {
             company_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: company,
+                    model: company.model,
                     key: 'company_id'
                 }
             },
@@ -28,21 +28,11 @@ class Customer {
                 type: Sequelize.STRING
             }
         });
-        // Company.hasMany(Customer, { foreignKey: 'company_id' })
-        // company.model.hasMany(this.model, { foreignKey: 'company_id' });
-        // User.hasMany(Foto,{as: 'fotos', foreignKey: 'userId'})
-        // https://stackoverflow.com/questions/44070808/hasmany-called-with-something-thats-not-an-instance-of-sequelize-model
+        company.model.hasMany(this.model, { foreignKey: 'company_id' })
     }
 
     getAllRows() {
-        Customers.findAll().then(customers => {
-            for (let index = 0; index < dolphins.length; index++) {
-                console.log(customers[index].firstName);
-            }
-            return customers;
-        }, err => {
-            console.error(err)
-        });
+        return this.model.findAll();
     }
 }
 
