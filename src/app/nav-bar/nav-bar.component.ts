@@ -4,17 +4,19 @@ import { Customer } from '../customer-model-front';
 
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+    customers: Customer[];
 
-  constructor() { }
+    constructor(private customerService: CustomerService) { }
 
-  ngOnInit() {
-      
-  }
-
-
+    ngOnInit() {
+        this.customerService.getCustomers().subscribe((data: Customer[]) => {
+            this.customers = data;
+            console.log(this.customers);
+        });
+    }
 }
