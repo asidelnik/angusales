@@ -33,11 +33,6 @@ class Customer {
 
     getAllRows() {
         return this.model.findAll();
-        // .then(companies => {
-        //     //console.error(companies);
-        // }, err => {
-        //     console.error(err);
-        // });
     }
 }
 

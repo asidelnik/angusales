@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 // var Word = require('./models/wordModel');
 
 
+
 // Get our API routes
 const companyAPI = require('./server/routes/company-api'); // ('./server/routes/api');
 const customerAPI = require('./server/routes/customer-api');
