@@ -21,11 +21,7 @@ class Companies {
     }
 
     getAllRows() {
-        return this.model.findAll().then(companies => {
-            console.log(companies);
-        }, err => {
-            console.error(err);
-        });
+        return this.model.findAll();
     }
 }
 

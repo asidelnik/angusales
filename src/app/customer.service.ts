@@ -20,8 +20,6 @@ export class CustomerService implements OnInit {
         return this.http.get<Customer[]>('/customer-api');
         // Do I need to catch an error here? if occurs?
     }
-
-    
 }
 
 

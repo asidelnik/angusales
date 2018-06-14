@@ -14,10 +14,13 @@ export class TableComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-        
-    }
+    ngOnInit() {}
 }
+
+
+
+
+
 
 // export interface PeriodicElement {
 //     id: number;
