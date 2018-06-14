@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { Customer } from '../customer-model-front';
 
 @Component({
     selector: 'app-table',
@@ -36,7 +36,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 
-/*
+
+
+
+
+/*  Advnaced tables typescripts
+
+// import { ViewChild } from '@angular/core';
+// import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 export class TableComponent implements OnInit {
     displayedColumns = ['id', 'First name', 'Last name', 'Company', 'Phone'];

@@ -6,18 +6,31 @@ var customer = require('../dataAccess/customer-model');
 // router - type of middleware function
 // An object to which serveral server requests can be assigned to
 
-router.get('/', (req, res) => {
-    res.send(JSON.stringify(customer.getAllRows()));
-    /* 
-        1. Call customer-model get (table) method with await to get a promise
-        2. Return the data with res.send
-    */
+router.get('/', async (req, res) => {
+    res.send(JSON.stringify(await customer.getAllRows()));
 
-    // res.send(JSON.stringify("Here I am.   you like a hurricane."));
+    
 })
 
+// Error catching
+    // fs.readFile("/file-does-not-exist", function (err, data) {
+    //     if (err) {
+    //         next(err); // Pass errors to Express.
+    //     }
+    //     else {
+    //         res.send(JSON.stringify(await customer.getAllRows()));
+    //     }
+    // });
 
 
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------
+// Older requests ------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
 
 router.get('/requiredParamRoute/:field', (req, res) => {
     // example request: http://localhost:3000/optionalParamsRoute/jona
@@ -32,8 +45,6 @@ router.get('/optionalParamsRoute', (req, res) => {
 })
 
 
-
-// Add error catching
 
 
 router.post('/post-a-word/:field', (req, res) => {
