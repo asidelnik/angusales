@@ -9,7 +9,6 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 export class TableComponent {
     displayedColumns = ['id', 'firstName', 'lastName', 'company', 'phone'];
-    // displayedColumns = ['position', 'name', 'weight', 'symbol'];
     dataSource = ELEMENT_DATA;
 }
 

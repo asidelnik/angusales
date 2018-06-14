@@ -44,6 +44,8 @@ class Customer {
             console.error(err)
         });
     }
+    // GetAllRows is async function
+    // 
 }
 
 

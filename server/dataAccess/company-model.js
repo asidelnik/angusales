@@ -23,7 +23,7 @@ class Companies {
     }
 
     getAllRows() {
-        this.model.findAll().then(companies => {
+        return this.model.findAll().then(companies => {
             for (let index = 0; index < companies.length; index++) {
                 console.log(companies);
             }
