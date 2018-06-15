@@ -16,18 +16,12 @@ export class CustomerService implements OnInit {
     ngOnInit() { }
 
     getCustomers(): Observable<Customer[]> {
-        console.log("hey");        
         return this.http.get<Customer[]>('/customer-api');
         // Do I need to catch an error here? if occurs?
     }
 }
 
 
-
-
-
-// get data from get request - as a subject
-// subscribe to data at the table
 
 
 // async getPosts() {

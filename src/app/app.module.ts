@@ -17,13 +17,15 @@ import { CustomerService } from './customer.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
+import { CustomersTableComponent } from './customers-table/customers-table.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
         HeaderComponent,
-        TableComponent
+        TableComponent,
+        CustomersTableComponent
     ],
     imports: [
         BrowserModule,
