@@ -1,15 +1,14 @@
 <mat-card>
     <mat-card-content>
-        <!-- <h2 class="example-h2">Tabs with text labels</h2> -->
         <mat-tab-group class="demo-tab-group">
             <mat-tab label="Customers">
                 <div class="demo-tab-content">
-                    <app-customers-table [customers]="customers"></app-customers-table>
+                    <app-customers-table [customers]="customers"></app-customers-table>     
                 </div>
             </mat-tab>
             <mat-tab label="Companies">
                 <div class="demo-tab-content">
-                    <app-companies-table></app-companies-table>
+                    <app-companies-table [companies]="companies"></app-companies-table>
                 </div>
             </mat-tab>
         </mat-tab-group>

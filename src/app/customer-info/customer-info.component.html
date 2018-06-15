@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>{{data.firstName}} {{data.lastName}}</span>
+        <span class="example-spacer"></span>
+        <!-- <button mat-raised-button>+ Create Customer</button> -->
+        <!-- <mat-icon class="example-icon">Edit</mat-icon> -->
+        <mat-icon class="mat-icon-rtl-mirror" svgIcon="edit-up"></mat-icon>
+        <mat-icon>edit</mat-icon>
+        <!-- <i class="material-icons">
+            edit
+        </i> -->
+
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="dialog-content_">
+    <mat-dialog-content>
+        <h4>Id</h4>
+        <p>{{data.customer_id}}</p>
+        <h4>Full Name</h4>
+        <p>{{data.firstName}} {{data.lastName}}</p>
+        <h4>Company</h4>
+        <p>{{data.company}}</p>
+        <h4>Phone</h4>
+        <p>{{data.phone}}</p>
+        <h4>Email</h4>
+        <p>{{data.email}}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>No</button>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+        <button mat-button [mat-dialog-close]="true">Yes</button>
+    </mat-dialog-actions>
+</div>
+
+
+
+
+
+<!-- id: number; firstName: string; lastName: string; company: string; phone:
+string; email: string; -->
