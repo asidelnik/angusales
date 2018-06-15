@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -10,20 +12,30 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { AppComponent } from './app.component';
 import { CustomerService } from './customer.service';
+import { CompanyService } from './company.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
-import { TableComponent } from './table/table.component';
+import { CustomersTableComponent } from './customers-table/customers-table.component';
+import { CompaniesTableComponent } from './companies-table/companies-table.component';
+import { CustomerInfoComponent } from './customer-info/customer-info.component';
+
+
 
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
         HeaderComponent,
-        TableComponent
+        CustomersTableComponent,
+        CompaniesTableComponent,
+        CustomerInfoComponent
     ],
     imports: [
         BrowserModule,
@@ -35,9 +47,20 @@ import { TableComponent } from './table/table.component';
         MatButtonModule,
         MatTableModule,
         MatFormFieldModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatDialogModule,
+        FormsModule,
+        MatIconModule
     ],
-    providers: [CustomerService],
+    entryComponents: [
+        CustomerInfoComponent
+    ],
+    providers: [
+        CustomerService,
+        CompanyService
+        //,        { provide: MAT_DIALOG_DATA, useValue: { hasBackdrop: false } }
+        //{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+.customerInfo {
+    cursor: pointer;
+}
+
+.mat-dialog-container {
+    border: 10px solid black;
+    background-color: red;
+}
