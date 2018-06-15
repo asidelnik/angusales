@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -18,6 +19,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { CustomersTableComponent } from './customers-table/customers-table.component';
+import { CompaniesTableComponent } from './companies-table/companies-table.component';
+
+
 
 @NgModule({
     declarations: [
@@ -25,7 +29,8 @@ import { CustomersTableComponent } from './customers-table/customers-table.compo
         NavBarComponent,
         HeaderComponent,
         TableComponent,
-        CustomersTableComponent
+        CustomersTableComponent,
+        CompaniesTableComponent
     ],
     imports: [
         BrowserModule,
