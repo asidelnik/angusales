@@ -1,3 +1,4 @@
 use Angusales;
 
-SELECT * FROM Comments
+SELECT * FROM Customers
+

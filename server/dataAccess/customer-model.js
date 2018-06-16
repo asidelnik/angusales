@@ -14,11 +14,11 @@ class Customer {
             lastName: {
                 type: Sequelize.STRING
             },
-            company_id: {
-                type: Sequelize.INTEGER,
+            company: {
+                type: Sequelize.STRING,
                 references: {
                     model: company.model,
-                    key: 'company_id'
+                    key: 'name'
                 }
             },
             email: {
@@ -28,7 +28,7 @@ class Customer {
                 type: Sequelize.STRING
             }
         });
-        company.model.hasMany(this.model, { foreignKey: 'company_id' })
+        company.model.hasMany(this.model, { foreignKey: 'name' })
     }
 
     getAllRows() {
@@ -41,6 +41,15 @@ const customer = new Customer();
 
 module.exports = customer;
 
+
+
+            // companyId: {
+            //     type: Sequelize.INTEGER,
+            //     references: {
+            //         model: company.model,
+            //         key: 'company_id'
+            //     }
+            // },
 
 
 // --------------------------------------------------------

@@ -7,7 +7,7 @@ import { Customer } from '../customer-model-front';
     styleUrls: ['./companies-table.component.css']
 })
 export class CompaniesTableComponent implements OnInit {
-    displayedColumns = ['id', 'name', 'address', 'country'];
+    displayedColumns = ['name', 'address', 'country'];
     @Input() companies: Customer[] = new Array<Customer>();
 
     constructor() { }

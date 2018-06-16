@@ -5,11 +5,8 @@ var DataAccessInst = require('./dataAccess');
 class Companies {
     constructor() {
         this.model = DataAccessInst.connection.define('Companies', {
-            company_id: {
-                type: Sequelize.INTEGER, primaryKey: true
-            },
             name: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING, primaryKey: true
             },
             address: {
                 type: Sequelize.STRING
@@ -30,6 +27,11 @@ module.exports = company;
 
 
 
+// company_id: {
+            //     type: Sequelize.INTEGER  //, primaryKey: true
+            // },
+
+            
 
 // for (let index = 0; index < companies.length; index++) {
 //     console.log(companies);
