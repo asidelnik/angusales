@@ -10,7 +10,13 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CustomerService implements OnInit {
 
+    public clientUpdated: Observable<any>;
+    public clientSubject: Subject<any>;
+
     constructor(private http: HttpClient) {
+
+        this.clientSubject = new Subject<any>();
+        this.clientUpdated = this.clientSubject.asObservable();
 
     }
 
@@ -28,6 +34,12 @@ export class CustomerService implements OnInit {
        return this.http.post<Customer>('/customer-api', customer);
     }
 }
+
+/*
+    Subjects in service
+    Get, add, edit, delete custoemrs, call next on subject
+    Nav bar subscirbes to updated observable
+*/
 
 
 
