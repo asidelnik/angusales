@@ -10,7 +10,7 @@
     <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef> First Name </th>
         <td mat-cell *matCellDef="let customer">
-            <a class="customerInfo" (click)="openDialog(customer)">{{customer.firstName}}</a>
+            <a class="customerInfo" (click)="showCustomerInfo(customer)">{{customer.firstName}}</a>
             <!-- <button mat-button (click)="openDialog()">{{customer.firstName}}</button> -->
         </td>
     </ng-container>

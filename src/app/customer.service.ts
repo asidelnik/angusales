@@ -23,6 +23,12 @@ export class CustomerService implements OnInit {
     getComments(id): Observable<Comment[]> {
         return this.http.get<Comment[]>('/comment-api/' + id);
     }
+
+    addCustomer(customer) {
+        this.http.post<Customer>('/customer-api', customer);
+        // Upon customer adition, should I restart browser or add to local array?
+        // Or maybe, the Oninit rerenders it anyway?
+    }
 }
 
 

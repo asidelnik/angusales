@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -25,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
 import { CustomersTableComponent } from './customers-table/customers-table.component';
 import { CompaniesTableComponent } from './companies-table/companies-table.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
 
 
 
@@ -35,7 +37,8 @@ import { CustomerInfoComponent } from './customer-info/customer-info.component';
         HeaderComponent,
         CustomersTableComponent,
         CompaniesTableComponent,
-        CustomerInfoComponent
+        CustomerInfoComponent,
+        AddCustomerComponent
     ],
     imports: [
         BrowserModule,
@@ -50,10 +53,12 @@ import { CustomerInfoComponent } from './customer-info/customer-info.component';
         MatPaginatorModule,
         MatDialogModule,
         FormsModule,
-        MatIconModule
+        MatIconModule,
+        MatInputModule
     ],
     entryComponents: [
-        CustomerInfoComponent
+        CustomerInfoComponent,
+        AddCustomerComponent
     ],
     providers: [
         CustomerService,
