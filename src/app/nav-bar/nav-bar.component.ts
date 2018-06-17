@@ -13,20 +13,27 @@ import { Company } from '../company-model-front';
 export class NavBarComponent implements OnInit {
     companies: Company[];
     customers: Customer[];
+    comments: Comment[];
 
     constructor(private companyService: CompanyService, private customerService: CustomerService) { }
 
     ngOnInit() {
         this.companyService.getCustomers().subscribe((data: Company[]) => {
             this.companies = data;
-            console.log(this.companies);
         });
 
         this.customerService.getCustomers().subscribe((data: Customer[]) => {
             this.customers = data;
-            console.log(this.customers);
-            console.log(data);
-            
         });
     }
+
+    // showComments(id) {
+    //     console.log(id);
+    //     console.log("hey");
+    //     this.customerService.getComments(id).subscribe((data: Comment[]) => {
+    //         this.comments = data;
+    //         console.log(this.comments);
+    //         console.log(data);
+    //     });
+    // }
 }

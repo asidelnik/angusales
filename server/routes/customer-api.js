@@ -7,8 +7,10 @@ var customer = require('../dataAccess/customer-model');
 // An object to which serveral server requests can be assigned to
 
 router.get('/', async (req, res) => {
-    res.send(JSON.stringify(await customer.getAllRows()));    
+    res.send(JSON.stringify(await customer.getAllRows()));   
 })
+
+
 
 // Error catching
     // fs.readFile("/file-does-not-exist", function (err, data) {

@@ -2,9 +2,9 @@ var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
 // var da = new DataAccess();
 
-class Companies {
+class Company {
     constructor() {
-        this.model = DataAccessInst.connection.define('Companies', {
+        this.model = DataAccessInst.connection.define('Company', {
             name: {
                 type: Sequelize.STRING, primaryKey: true
             },
@@ -22,18 +22,5 @@ class Companies {
     }
 }
 
-const company = new Companies();
+const company = new Company();
 module.exports = company;
-
-
-
-// company_id: {
-            //     type: Sequelize.INTEGER  //, primaryKey: true
-            // },
-
-            
-
-// for (let index = 0; index < companies.length; index++) {
-//     console.log(companies);
-// }
-// return companies;

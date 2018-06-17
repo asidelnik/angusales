@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Customer } from './customer-model-front';
+import { Comment } from './comment-model-front';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
@@ -17,7 +18,10 @@ export class CustomerService implements OnInit {
 
     getCustomers(): Observable<Customer[]> {
         return this.http.get<Customer[]>('/customer-api');
-        // Do I need to catch an error here? if occurs?
+    }
+
+    getComments(id): Observable<Comment[]> {
+        return this.http.get<Comment[]>('/comment-api/' + id);
     }
 }
 

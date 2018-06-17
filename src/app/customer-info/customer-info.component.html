@@ -4,7 +4,7 @@
         <span class="example-spacer"></span>
         <!-- <button mat-raised-button>+ Create Customer</button> -->
         <!-- <mat-icon class="example-icon">Edit</mat-icon> -->
-        <mat-icon class="mat-icon-rtl-mirror" svgIcon="edit-up"></mat-icon>
+        <!-- <mat-icon class="mat-icon-rtl-mirror" svgIcon="edit-up"></mat-icon> -->
         <mat-icon>edit</mat-icon>
         <!-- <i class="material-icons">
             edit
@@ -25,6 +25,23 @@
         <p>{{data.phone}}</p>
         <h4>Email</h4>
         <p>{{data.email}}</p>
+
+        <button title="show comments" mat-raised-button (click)="showComments(data.customer_id)"
+            color="primary">Comments</button>
+
+        <ul *ngIf="comments">
+            <h3>Customer Comments</h3>
+            <li *ngFor="let comment of comments">
+                <span>{{comment.creationDate}}</span>
+                <span>{{comment.text}}</span>
+              
+
+                <!-- <a routerLink="/detail/{{hero.id}}">
+                    <span class="badge">{{hero.id}}</span> {{hero.name}}
+                </a> -->
+            </li>
+        </ul>
+
     </mat-dialog-content>
     <mat-dialog-actions>
         <button mat-button mat-dialog-close>No</button>

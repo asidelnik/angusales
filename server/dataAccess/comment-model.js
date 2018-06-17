@@ -5,7 +5,7 @@ var customer = require('./customer-model');
 
 class Comment {
     constructor() {
-        this.model = DataAccessInst.connection.define('Comments', {
+        this.model = DataAccessInst.connection.define('Comment', {
             comment_id: {
                 type: Sequelize.INTEGER, primaryKey: true
             },
@@ -26,8 +26,12 @@ class Comment {
         customer.model.hasMany(this.model, { foreignKey: 'customer_id' });
     }
 
-    getAllRows() {
-        return this.model.findAll();
+    getAllRows(id) {
+        return this.model.findAll({
+            where: {
+                customer_id: id
+            }
+        });
     }
 }
 
@@ -35,4 +39,3 @@ class Comment {
 const comment = new Comment();
 
 module.exports = comment;
-

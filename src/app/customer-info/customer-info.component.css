@@ -1,11 +1,13 @@
 .dialog-content_ {
-    padding: 24px 48px;
+    padding: 0px 30px 24px 30px;
 }
 
 h4 {
     margin-bottom: 5px;
+    font-size: 12px;
 }
 
 p {
     margin-top: 0px;
+    font-size: 14px;
 }

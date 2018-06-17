@@ -1,4 +1,4 @@
 use Angusales;
 
-SELECT * FROM Customers
+SELECT * FROM Customer
 

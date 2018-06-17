@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Customer } from '../customer-model-front';
+import { Company } from '../company-model-front';
 
 @Component({
     selector: 'app-companies-table',
@@ -8,7 +8,7 @@ import { Customer } from '../customer-model-front';
 })
 export class CompaniesTableComponent implements OnInit {
     displayedColumns = ['name', 'address', 'country'];
-    @Input() companies: Customer[] = new Array<Customer>();
+    @Input() companies: Company[] = new Array<Company>();
 
     constructor() { }
 
