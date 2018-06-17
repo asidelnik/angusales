@@ -25,13 +25,16 @@ export class CustomerService implements OnInit {
     }
 
     addCustomer(customer) {
-        this.http.post<Customer>('/customer-api', customer);
-        // Upon customer adition, should I restart browser or add to local array?
-        // Or maybe, the Oninit rerenders it anyway?
+        this.http.post<Customer>('/customer-api', { newCustomer: customer });
     }
 }
 
 
+
+// console.log("service - customer:");
+        // console.log(customer);
+        // Upon customer adition, should I restart browser or add to local array?
+        // Or maybe, the Oninit rerenders it anyway?
 
 
 // async getPosts() {

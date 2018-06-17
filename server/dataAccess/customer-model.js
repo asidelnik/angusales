@@ -34,6 +34,15 @@ class Customer {
     getAllRows() {
         return this.model.findAll();
     }
+
+    addCustomer(newCustomer) {
+        this.model.create(newCustomer).then((data) => {
+            console.log(data);
+        }, (err) => {
+            console.error(err)
+        })
+        newCustomer.save();
+    }
 }
 
 
