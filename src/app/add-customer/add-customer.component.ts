@@ -25,7 +25,10 @@ export class AddCustomerComponent implements OnInit {
     ngOnInit() {}
 
     addCustomer() {
-        console.log(this.newCustomer);
-        this.customerService.addCustomer(this.newCustomer);
+        this.customerService.addCustomer(this.newCustomer).subscribe((data)=>{
+            // Call next on 
+            this.dialogRef.close();
+
+        });
     }
 }

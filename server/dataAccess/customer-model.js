@@ -36,12 +36,7 @@ class Customer {
     }
 
     addCustomer(newCustomer) {
-        this.model.create(newCustomer).then((data) => {
-            console.log(data);
-        }, (err) => {
-            console.error(err)
-        })
-        newCustomer.save();
+       return this.model.create(newCustomer);
     }
 }
 

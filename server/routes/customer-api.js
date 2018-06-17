@@ -11,22 +11,11 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    let newCustomer = req.body.newCustomer;
-    console.log(newCustomer);
+    console.log(req.body);
     
-    customer.addCustomer(newCustomer)
-
-
-    // await customer.addCustomer(newCustomer);
-    // res.send(newCustomer);
-    // let word = req.params.toLowerCase();
-    // let newCustomer = req.body;
-    // console.log(req.body);
-
-    // let newWord = new Word({
-    //     word: word,
-    //     count: 1,
-    // });
+    let newCustomer = req.body;
+    await customer.addCustomer(newCustomer);
+    res.send(JSON.stringify(await customer.getAllRows()));
 });
 
 

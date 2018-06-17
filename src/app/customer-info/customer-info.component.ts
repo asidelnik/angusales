@@ -11,7 +11,6 @@ import { Comment } from '../comment-model-front';
 })
 export class CustomerInfoComponent implements OnInit {
 
-    // @Output() comments = new EventEmitter<boolean>();
     comments : Comment[];
 
     constructor(

@@ -63,8 +63,6 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
     providers: [
         CustomerService,
         CompanyService
-        //,        { provide: MAT_DIALOG_DATA, useValue: { hasBackdrop: false } }
-        //{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
     ],
     bootstrap: [AppComponent]
 })

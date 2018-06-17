@@ -25,7 +25,7 @@ export class CustomerService implements OnInit {
     }
 
     addCustomer(customer) {
-        this.http.post<Customer>('/customer-api', { newCustomer: customer });
+       return this.http.post<Customer>('/customer-api', customer);
     }
 }
 
