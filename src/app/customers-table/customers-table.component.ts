@@ -3,6 +3,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'; //
 import { Customer } from '../customer-model-front';
 import { Comment } from '../comment-model-front';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
+import { CustomerService } from '../customer.service';
+
 
 @Component({
     selector: 'app-customers-table',
@@ -10,11 +12,11 @@ import { CustomerInfoComponent } from '../customer-info/customer-info.component'
     styleUrls: ['./customers-table.component.css']
 })
 export class CustomersTableComponent implements OnInit {
-    displayedColumns = ['id', 'firstName', 'lastName', 'company', 'phone'];
+    displayedColumns = ['id', 'firstName', 'lastName', 'company', 'phone', 'actions'];
     @Input() customers: Customer[] = new Array<Customer>();
     @Input() comments: Comment[] = new Array<Comment>();
 
-    constructor(public dialog: MatDialog) { }
+    constructor(public dialog: MatDialog, private customerService: CustomerService) { }
     
     ngOnInit() {
         // console.log(this.comments);
@@ -33,5 +35,9 @@ export class CustomersTableComponent implements OnInit {
             console.log(result);
             // this.animal = result;
         });
+    }
+
+    deleteCustomer(customerId) {
+        this.customerService.deleteCustomer(customerId);
     }
 }

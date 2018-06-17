@@ -10,20 +10,27 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CustomerService implements OnInit {
 
-    public clientUpdated: Observable<any>;
-    public clientSubject: Subject<any>;
+    public customersSubject: Subject<any>;
+    public customersUpdated: Observable<any>;
+    customers = [];
+    comments = [];
+    // customers: Customer[] = new Array<Customer>();
+    // comments: Comment[] = new Array<Comment>();
 
     constructor(private http: HttpClient) {
 
-        this.clientSubject = new Subject<any>();
-        this.clientUpdated = this.clientSubject.asObservable();
+        this.customersSubject = new Subject<any>();
+        this.customersUpdated = this.customersSubject.asObservable();
 
     }
 
     ngOnInit() { }
 
-    getCustomers(): Observable<Customer[]> {
-        return this.http.get<Customer[]>('/customer-api');
+    getCustomers(): void {
+        this.http.get<any[]>('/customer-api').subscribe((data) => {
+            this.customers = data;
+            this.customersSubject.next(this.customers);
+        })
     }
 
     getComments(id): Observable<Comment[]> {
@@ -31,11 +38,29 @@ export class CustomerService implements OnInit {
     }
 
     addCustomer(customer) {
-       return this.http.post<Customer>('/customer-api', customer);
+        this.http.post<any[]>('/customer-api', customer).subscribe((data) => {
+            this.customers = data;
+            this.customersSubject.next(this.customers);
+        })
+    }
+
+    deleteCustomer(id) {
+        this.http.delete<any[]>('/customer-api' + id).subscribe((data) => {
+            this.customers = data;
+            this.customersSubject.next(this.customers);
+        })
     }
 }
 
+
+
+
 /*
+console.log("service getCustomers data:");
+            console.log(data);
+        console.log("service getCustomers running");
+
+
     Subjects in service
     Get, add, edit, delete custoemrs, call next on subject
     Nav bar subscirbes to updated observable

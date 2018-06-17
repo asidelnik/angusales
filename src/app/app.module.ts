@@ -27,6 +27,7 @@ import { CustomersTableComponent } from './customers-table/customers-table.compo
 import { CompaniesTableComponent } from './companies-table/companies-table.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { AddCompanyComponent } from './add-company/add-company.component';
 
 
 
@@ -38,7 +39,8 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
         CustomersTableComponent,
         CompaniesTableComponent,
         CustomerInfoComponent,
-        AddCustomerComponent
+        AddCustomerComponent,
+        AddCompanyComponent
     ],
     imports: [
         BrowserModule,
@@ -58,7 +60,8 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
     ],
     entryComponents: [
         CustomerInfoComponent,
-        AddCustomerComponent
+        AddCustomerComponent,
+        AddCompanyComponent
     ],
     providers: [
         CustomerService,

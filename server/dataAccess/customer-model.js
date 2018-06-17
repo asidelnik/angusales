@@ -36,7 +36,13 @@ class Customer {
     }
 
     addCustomer(newCustomer) {
-       return this.model.create(newCustomer);
+        return this.model.create(newCustomer);
+    }
+
+    deleteCustomer(customerId) {
+        this.model.hasMany(Comment.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
+        Comment.model.belongsTo(this.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
+        return this.model.destroy({ where: { customer_id: customerId } });
     }
 }
 

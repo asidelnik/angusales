@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'; // , 
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Customer } from '../customer-model-front';
-import { AddCustomerComponent } from '../add-customer/add-customer.component';
+import { AddCompanyComponent } from '../add-company/add-company.component';
 
 
 @Component({
@@ -16,8 +16,8 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
     }
 
-    addCustomer(): void {
-        let dialogRef = this.dialog.open(AddCustomerComponent, {
+    addCompany(): void {
+        let dialogRef = this.dialog.open(AddCompanyComponent, {
             // data: customer,
             panelClass: 'custom-dialog-container'
         });

@@ -3,6 +3,8 @@ import { CustomerService } from '../customer.service';
 import { CompanyService } from '../company.service';
 import { Customer } from '../customer-model-front';
 import { Company } from '../company-model-front';
+import { Subscriber } from 'rxjs';
+
 
 
 @Component({
@@ -15,19 +17,26 @@ export class NavBarComponent implements OnInit {
     customers: Customer[];
     comments: Comment[];
 
-    constructor(private companyService: CompanyService, private customerService: CustomerService) { }
-
-    ngOnInit() {
-        this.companyService.getCustomers().subscribe((data: Company[]) => {
-            this.companies = data;
-        });
-
-        this.customerService.getCustomers().subscribe((data: Customer[]) => {
+    constructor(private companyService: CompanyService, private customerService: CustomerService) {
+        this.customerService.customersUpdated.subscribe((data) => {
+            //Why in constructor and not ngOninit?
             this.customers = data;
         });
-    }
 
-    // showComments(id) {
+        this.companyService.companiesUpdated.subscribe((data) => {
+            this.companies = data;
+        });
+     }
+
+    ngOnInit() {
+        this.customerService.getCustomers();
+        this.companyService.getCompanies();      
+    }
+}
+
+
+
+   // showComments(id) {
     //     console.log(id);
     //     console.log("hey");
     //     this.customerService.getComments(id).subscribe((data: Comment[]) => {
@@ -36,4 +45,3 @@ export class NavBarComponent implements OnInit {
     //         console.log(data);
     //     });
     // }
-}

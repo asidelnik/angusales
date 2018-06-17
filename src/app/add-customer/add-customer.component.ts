@@ -13,6 +13,7 @@ import { Customer } from '../customer-model-front';
 export class AddCustomerComponent implements OnInit {
     
     newCustomer: Customer = new Customer();
+    companyName: string;
 
     constructor(public dialogRef: MatDialogRef<AddCustomerComponent>, 
         @Inject(MAT_DIALOG_DATA) public data: any, 
@@ -24,11 +25,9 @@ export class AddCustomerComponent implements OnInit {
 
     ngOnInit() {}
 
-    addCustomer() {
-        this.customerService.addCustomer(this.newCustomer).subscribe((data)=>{
-            // Call next on 
-            this.dialogRef.close();
-
-        });
+    addCustomer(companyName) {
+        this.newCustomer.company = companyName;
+        this.customerService.addCustomer(this.newCustomer);
+        this.dialogRef.close();
     }
 }

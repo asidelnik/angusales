@@ -20,6 +20,10 @@ class Company {
     getAllRows() {
         return this.model.findAll();
     }
+
+    addCompany(newCompany) {
+        return this.model.create(newCompany);
+    }
 }
 
 const company = new Company();

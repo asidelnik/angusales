@@ -11,13 +11,16 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
-    
     let newCustomer = req.body;
     await customer.addCustomer(newCustomer);
     res.send(JSON.stringify(await customer.getAllRows()));
 });
 
+router.delete('/:id', async (req, res) => {
+    let customerId = req.params.id;
+    await customer.addCustomer(newCustomer);
+    res.send(JSON.stringify(await customer.deleteCustomer(customerId)));
+});
 
 
 
