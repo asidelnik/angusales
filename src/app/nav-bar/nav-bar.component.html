@@ -3,7 +3,7 @@
         <mat-tab-group class="demo-tab-group">
             <mat-tab label="Customers">
                 <div class="demo-tab-content">
-                    <app-customers-table [customers]="customers"></app-customers-table>     
+                    <app-customers-table (comments)="showComments($event)" [customers]="customers"></app-customers-table>
                 </div>
             </mat-tab>
             <mat-tab label="Companies">

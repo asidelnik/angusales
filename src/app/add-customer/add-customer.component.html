@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>{{data}} - Add Customer</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="dialog-content_">
+    <mat-dialog-content>
+        <div class="example-container">
+            <div>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="newCustomer.firstName" placeholder="First Name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="newCustomer.lastName" placeholder="Last Name">
+                </mat-form-field>
+            </div>
+            <!-- <div>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="newCustomer.company" placeholder="Company">
+                </mat-form-field>
+            </div> -->
+            <div>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="newCustomer.phone" placeholder="Phone">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="newCustomer.email" placeholder="Email">
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close color="primary" (click)="addCustomer(data)">Add</button>
+        <button mat-button [mat-dialog-close]="true">Cancel</button>
+    </mat-dialog-actions>
+</div>
+
+
+<!-- <div>
+    <mat-form-field>
+        <input matInput [(ngModel)]="newCustomer.id" placeholder="Id">
+    </mat-form-field>
+</div> -->

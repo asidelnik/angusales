@@ -1,30 +1,29 @@
 use Angusales;
 
 
-create table Companies(
-    company_id int, 
+create table Company(
     name varchar(30),
     address varchar(60),
     country varchar(30),
-    PRIMARY KEY( company_id )
+    PRIMARY KEY( name )
 );
 
-create table Customers(
+create table Customer(
     customer_id int, 
     firstName varchar(30),
     lastName varchar(60),
-    company_id int,
+    company varchar(30),
     email varchar(60),
     phone varchar(30),
     PRIMARY KEY( customer_id ),
-    FOREIGN KEY( company_id ) REFERENCES Companies( company_id )
+    FOREIGN KEY( company ) REFERENCES Company( name )
 );
 
-create table Comments(
+create table Comment(
     comment_id int,
     creationDate Date,
     customer_id int,
     text varchar(60),
     PRIMARY KEY( comment_id ),
-    FOREIGN KEY( customer_id ) REFERENCES Customers( customer_id )
+    FOREIGN KEY( customer_id ) REFERENCES Customer( customer_id )
 );

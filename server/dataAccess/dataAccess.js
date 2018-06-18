@@ -14,7 +14,8 @@ class DataAccess {
                 idle: 10000
             },
             define: {
-                timestamps: false
+                timestamps: false,
+                freezeTableName: true
             }
         });
     }

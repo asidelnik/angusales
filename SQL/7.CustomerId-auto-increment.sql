@@ -1,0 +1,9 @@
+use angusales ;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+
+ALTER TABLE Customer
+MODIFY COLUMN customer_id int NOT NULL AUTO_INCREMENT ;
+
+SET FOREIGN_KEY_CHECKS = 1;

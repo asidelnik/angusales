@@ -2,14 +2,7 @@
     <mat-toolbar-row>
         <span>{{data.firstName}} {{data.lastName}}</span>
         <span class="example-spacer"></span>
-        <!-- <button mat-raised-button>+ Create Customer</button> -->
-        <!-- <mat-icon class="example-icon">Edit</mat-icon> -->
-        <mat-icon class="mat-icon-rtl-mirror" svgIcon="edit-up"></mat-icon>
         <mat-icon>edit</mat-icon>
-        <!-- <i class="material-icons">
-            edit
-        </i> -->
-
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -25,10 +18,21 @@
         <p>{{data.phone}}</p>
         <h4>Email</h4>
         <p>{{data.email}}</p>
+
+        <button title="show comments" mat-raised-button (click)="showComments(data.customer_id)"
+            color="primary">Comments</button>
+
+        <ul *ngIf="arrComments.length > 0">
+            <h3>Customer Comments</h3>
+            <li *ngFor="let comment of arrComments">
+                <span>{{comment.creationDate}}</span>
+                <span>{{comment.text}}</span>
+            </li>
+        </ul>
+
     </mat-dialog-content>
     <mat-dialog-actions>
         <button mat-button mat-dialog-close>No</button>
-        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
         <button mat-button [mat-dialog-close]="true">Yes</button>
     </mat-dialog-actions>
 </div>

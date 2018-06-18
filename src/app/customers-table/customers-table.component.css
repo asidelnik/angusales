@@ -2,8 +2,14 @@ table {
     width: 100%;
 }
 
-.customerInfo {
+.customerInfo_ {
     cursor: pointer;
+}
+
+.customerInfo_:hover {
+    cursor: pointer;
+    color: #4153AF;
+    text-decoration: underline;
 }
 
 .mat-dialog-container {

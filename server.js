@@ -37,19 +37,21 @@ app.use('/company-api', companyAPI);
 app.use('/customer-api', customerAPI); // use enables the midddleware, which is customerAPI
 app.use('/comment-api', commentAPI);
 
-app.get('/test', (req, res) => {
-    res.send('test');
-    /* 
-        1. Call commnet-model get rows method with await to get a promise
-        2. Return the data with res.send
-    */
+// app.get('/test', (req, res) => {
+//     res.send('test');
+// })
 
-    // res.send(JSON.stringify("Here I am.   you like a hurricane."));
-})
+// app.post('/test', (req, res) => {
+//     res.send('test');
+// })
+
 // Catch all other routes and return the index file
 app.all('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/Angusales/index.html'));      //'dist/index.html'
 });
+
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -57,6 +59,8 @@ app.use(function (err, req, res, next) {
   console.error(err.stack)
   res.status(500).send('Something broke!')
 })
+
+
 
 const port = process.env.PORT || '3000';
 app.set('port', port);
@@ -70,3 +74,18 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+
+
+
+/*
+app.get('/test', (req, res) => {
+    res.send('test');
+     
+        1. Call commnet-model get rows method with await to get a promise
+        2. Return the data with res.send
+    
+
+    // res.send(JSON.stringify("Here I am.   you like a hurricane."));
+})
+*/
