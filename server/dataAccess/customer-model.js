@@ -1,6 +1,8 @@
 var Sequelize = require('sequelize');
 var DataAccessInst = require('./dataAccess');
 var company = require('./company-model');
+// var comment = require('./comment-model');
+
 
 class Customer {
     constructor() {
@@ -40,8 +42,12 @@ class Customer {
     }
 
     deleteCustomer(customerId) {
-        this.model.hasMany(Comment.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
-        Comment.model.belongsTo(this.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
+        // Delete comment rows that belong to customerId
+
+        // Delete customer row by customerId
+
+        // this.model.hasMany(comment.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
+        // comment.model.belongsTo(this.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
         return this.model.destroy({ where: { customer_id: customerId } });
     }
 }

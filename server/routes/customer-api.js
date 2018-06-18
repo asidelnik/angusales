@@ -3,6 +3,9 @@ const router = express.Router();
 
 var customer = require('../dataAccess/customer-model');
 
+// New line
+var comment = require('../dataAccess/comment-model');
+
 // router - type of middleware function
 // An object to which serveral server requests can be assigned to
 
@@ -18,8 +21,9 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     let customerId = req.params.id;
-    await customer.addCustomer(newCustomer);
-    res.send(JSON.stringify(await customer.deleteCustomer(customerId)));
+    // await comment.deleteComment(customerId);
+    await customer.deleteCustomer(customerId);
+    res.send(JSON.stringify(await customer.getAllRows()));
 });
 
 

@@ -4,6 +4,7 @@ import { Customer } from '../customer-model-front';
 import { Comment } from '../comment-model-front';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
 import { CustomerService } from '../customer.service';
+import { CommentService } from '../customer.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CustomersTableComponent implements OnInit {
     @Input() customers: Customer[] = new Array<Customer>();
     @Input() comments: Comment[] = new Array<Comment>();
 
-    constructor(public dialog: MatDialog, private customerService: CustomerService) { }
+    constructor(public dialog: MatDialog, private customerService: CustomerService, private commentService: CommentService) { }
     
     ngOnInit() {
         // console.log(this.comments);
@@ -38,6 +39,7 @@ export class CustomersTableComponent implements OnInit {
     }
 
     deleteCustomer(customerId) {
+        this.commentService.deleteCustomerComments(customerId);
         this.customerService.deleteCustomer(customerId);
     }
 }

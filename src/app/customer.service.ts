@@ -10,12 +10,9 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CustomerService implements OnInit {
 
+    arrCustomers: Customer[] = new Array<Customer>();
     public customersSubject: Subject<any>;
     public customersUpdated: Observable<any>;
-    customers = [];
-    comments = [];
-    // customers: Customer[] = new Array<Customer>();
-    // comments: Comment[] = new Array<Comment>();
 
     constructor(private http: HttpClient) {
 
@@ -28,8 +25,8 @@ export class CustomerService implements OnInit {
 
     getCustomers(): void {
         this.http.get<any[]>('/customer-api').subscribe((data) => {
-            this.customers = data;
-            this.customersSubject.next(this.customers);
+            this.arrCustomers = data;
+            this.customersSubject.next(this.arrCustomers);
         })
     }
 
@@ -45,7 +42,8 @@ export class CustomerService implements OnInit {
     }
 
     deleteCustomer(id) {
-        this.http.delete<any[]>('/customer-api' + id).subscribe((data) => {
+        this.http.delete<any>('/customer-api/' + id).subscribe((data) => {
+            
             this.customers = data;
             this.customersSubject.next(this.customers);
         })
