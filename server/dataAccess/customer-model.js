@@ -42,12 +42,6 @@ class Customer {
     }
 
     deleteCustomer(customerId) {
-        // Delete comment rows that belong to customerId
-
-        // Delete customer row by customerId
-
-        // this.model.hasMany(comment.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
-        // comment.model.belongsTo(this.model, { foreignKey: 'customer_id', onDelete: 'CASCADE', hooks: true })
         return this.model.destroy({ where: { customer_id: customerId } });
     }
 }

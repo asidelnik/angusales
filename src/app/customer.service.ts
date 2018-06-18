@@ -30,9 +30,7 @@ export class CustomerService implements OnInit {
         })
     }
 
-    
-
-    addCustomer(customer) {
+    addCustomer(customer: Customer) {
         this.http.post<any[]>('/customer-api', customer).subscribe((data) => {
             this.arrCustomers = data;
             this.customersSubject.next(this.arrCustomers);

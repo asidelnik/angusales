@@ -8,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CommentService {
 
-    arrComments: Comment[] = new Array<Comment>();
+    // arrComments: Comment[] = new Array<Comment>();
     arrCommentSubject: Subject<Comment[]> = new Subject<Comment[]>();
     arrCommentObservable: Observable<Comment[]>;
 
@@ -21,9 +21,12 @@ export class CommentService {
     }
 
     deleteCustomerComments(id) {
-        this.http.delete<any>('/comment-api/' + id).subscribe((data) => {
-            this.arrComments = data;
-            this.arrCommentSubject.next(this.arrComments);
-        })
+        return this.http.delete<Comment[]>('/comment-api/' + id);
+        // .subscribe((data) => {
+        //     console.log(data);
+            
+        //     // this.arrComments = data;
+        //     // this.arrCommentSubject.next(this.arrComments);
+        // })
     }
 }

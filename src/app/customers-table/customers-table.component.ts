@@ -31,15 +31,11 @@ export class CustomersTableComponent implements OnInit {
             panelClass: 'custom-dialog-container'
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
-            console.log(result);
-            // this.animal = result;
-        });
+        dialogRef.afterClosed().subscribe(result => {});
     }
 
     deleteCustomer(customerId) {
-        this.commentService.deleteCustomerComments(customerId);
+        this.commentService.deleteCustomerComments(customerId).subscribe((data) => {});
         this.customerService.deleteCustomer(customerId);
     }
 }

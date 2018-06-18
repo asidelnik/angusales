@@ -21,7 +21,6 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     let customerId = req.params.id;
-    // await comment.deleteComment(customerId);
     await customer.deleteCustomer(customerId);
     res.send(JSON.stringify(await customer.getAllRows()));
 });

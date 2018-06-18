@@ -26,10 +26,18 @@ class Comment {
         customer.model.hasMany(this.model, { foreignKey: 'customer_id' });
     }
 
-    getAllRows(id) {
+    getAllRows(customerId) {
         return this.model.findAll({
             where: {
-                customer_id: id
+                customer_id: customerId
+            }
+        });
+    }
+
+    deleteCustomerComments(customerId) {
+        return this.model.destroy({
+            where: {
+                customer_id: customerId
             }
         });
     }
