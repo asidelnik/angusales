@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'; //
 import { Customer } from '../customer-model-front';
 import { Comment } from '../comment-model-front';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
+import { CustomerService } from '../customer.service';
 
 @Component({
     selector: 'app-customers-table',
@@ -14,14 +15,19 @@ export class CustomersTableComponent implements OnInit {
     // dataSource = ELEMENT_DATA;
     // animal: string;
     // name: string;
-    @Input() customers: Customer[] = new Array<Customer>();
+   customers: Customer[] = new Array<Customer>();
     @Input() comments: Comment[] = new Array<Comment>();
 
-    constructor(public dialog: MatDialog) { }
+    constructor(public dialog: MatDialog, private customerService: CustomerService) { }
     
     ngOnInit() {
         console.log(this.comments);
-        
+
+        this.customers = this.customerService.arrCustomers;
+
+        this.customerService.arrCustomersObservable.subscribe((data)=>{
+            this.customers = data;
+        })
     }
 
     openDialog(customer): void {

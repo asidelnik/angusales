@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
     customers: Customer[];
     comments: Comment[];
 
-    constructor(private companyService: CompanyService, private customerService: CustomerService) { }
+    constructor(private companyService: CompanyService) { }
 
     ngOnInit() {
         this.companyService.getCustomers().subscribe((data: Company[]) => {
