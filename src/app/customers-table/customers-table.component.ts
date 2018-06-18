@@ -4,7 +4,7 @@ import { Customer } from '../customer-model-front';
 import { Comment } from '../comment-model-front';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
 import { CustomerService } from '../customer.service';
-import { CommentService } from '../customer.service';
+import { CommentService } from '../comment.service';
 
 
 @Component({

@@ -16,9 +16,12 @@ export class CommentService {
         this.arrCommentObservable = this.arrCommentSubject.asObservable();
     }
 
+    getComments(id): Observable<Comment[]> {
+        return this.http.get<Comment[]>('/comment-api/' + id);
+    }
+
     deleteCustomerComments(id) {
         this.http.delete<any>('/comment-api/' + id).subscribe((data) => {
-
             this.arrComments = data;
             this.arrCommentSubject.next(this.arrComments);
         })

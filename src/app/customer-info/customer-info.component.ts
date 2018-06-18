@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';  //EventEmitter, Output
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CustomerService } from '../customer.service';
+import { CommentService } from '../comment.service';
 import { Comment } from '../comment-model-front';
 
 
@@ -11,12 +12,13 @@ import { Comment } from '../comment-model-front';
 })
 export class CustomerInfoComponent implements OnInit {
 
-    comments : Comment[];
+    arrComments: Comment[] = new Array<Comment>();
 
     constructor(
         public dialogRef: MatDialogRef<CustomerInfoComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
-        private customerService: CustomerService) { }
+        private customerService: CustomerService,
+        private commentService: CommentService) { }
 
     onNoClick(): void {
         this.dialogRef.close();
@@ -26,9 +28,9 @@ export class CustomerInfoComponent implements OnInit {
     }
 
     showComments(customerId) {
-        this.customerService.getComments(customerId).subscribe((data: Comment[]) => {
-            this.comments = data;
-            console.log(this.comments);
+        this.commentService.getComments(customerId).subscribe((data: Comment[]) => {
+            this.arrComments = data;
+            console.log(this.arrComments);
         });
     }
 }

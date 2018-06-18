@@ -22,9 +22,9 @@
         <button title="show comments" mat-raised-button (click)="showComments(data.customer_id)"
             color="primary">Comments</button>
 
-        <ul *ngIf="comments">
+        <ul *ngIf="arrComments.length > 0">
             <h3>Customer Comments</h3>
-            <li *ngFor="let comment of comments">
+            <li *ngFor="let comment of arrComments">
                 <span>{{comment.creationDate}}</span>
                 <span>{{comment.text}}</span>
             </li>

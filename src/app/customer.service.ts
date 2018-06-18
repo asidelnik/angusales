@@ -30,22 +30,19 @@ export class CustomerService implements OnInit {
         })
     }
 
-    getComments(id): Observable<Comment[]> {
-        return this.http.get<Comment[]>('/comment-api/' + id);
-    }
+    
 
     addCustomer(customer) {
         this.http.post<any[]>('/customer-api', customer).subscribe((data) => {
-            this.customers = data;
-            this.customersSubject.next(this.customers);
+            this.arrCustomers = data;
+            this.customersSubject.next(this.arrCustomers);
         })
     }
 
     deleteCustomer(id) {
         this.http.delete<any>('/customer-api/' + id).subscribe((data) => {
-            
-            this.customers = data;
-            this.customersSubject.next(this.customers);
+            this.arrCustomers = data;
+            this.customersSubject.next(this.arrCustomers);
         })
     }
 }
